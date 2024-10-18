@@ -1,9 +1,9 @@
-# py-mediainfo
+# pymediainfo-tensoraws
 
 [![codecov](https://codecov.io/gh/TensoRaws/py-mediainfo/graph/badge.svg?token=b8S3S9br5B)](https://codecov.io/gh/TensoRaws/py-mediainfo)
-[![CI-test](https://github.com/TensoRaws/py-mediainfo/actions/workflows/CI-test.yml/badge.svg)](https://github.com/TensoRaws/py-mediainfo/actions/workflows/CI-test.yml)
-[![Release-pypi](https://github.com/TensoRaws/py-mediainfo/actions/workflows/Release-pypi.yml/badge.svg)](https://github.com/TensoRaws/py-mediainfo/actions/workflows/Release-pypi.yml)
-[![PyPI version](https://badge.fury.io/py/py-mediainfo.svg)](https://badge.fury.io/py/py-mediainfo)
+[![CI-test](https://github.com/TensoRaws/pymediainfo-tensoraws/actions/workflows/CI-test.yml/badge.svg)](https://github.com/TensoRaws/pymediainfo-tensoraws/actions/workflows/CI-test.yml)
+[![Release-pypi](https://github.com/TensoRaws/pymediainfo-tensoraws/actions/workflows/Release-pypi.yml/badge.svg)](https://github.com/TensoRaws/pymediainfo-tensoraws/actions/workflows/Release-pypi.yml)
+[![PyPI version](https://badge.fury.io/py/pymediainfo-tensoraws.svg)](https://badge.fury.io/py/pymediainfo-tensoraws)
 
 ### a modern fork from https://github.com/sbraz/pymediainfo
 
@@ -18,7 +18,7 @@ See https://pymediainfo.readthedocs.io/ for more information.
 ### Requirements
 
 ```
-pip install py-mediainfo
+pip install pymediainfo-tensoraws
 ```
 
 On Linux, you will need to install the MediaInfo library. On Debian-based systems, you can do this with:

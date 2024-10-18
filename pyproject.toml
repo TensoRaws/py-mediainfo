@@ -24,14 +24,14 @@ classifiers = [
 ]
 dependencies = []
 license = {text = "MIT"}
-name = "py-mediainfo"
+name = "pymediainfo-tensoraws"
 readme = "README.md"
 requires-python = ">=3.8"
 version = "0.0.1"
 
 [project.urls]
-Homepage = "https://github.com/TensoRaws/py-mediainfo"
-Repository = "https://github.com/TensoRaws/py-mediainfo"
+Homepage = "https://github.com/TensoRaws/pymediainfo-tensoraws"
+Repository = "https://github.com/TensoRaws/pymediainfo-tensoraws"
 
 [tool.coverage.run]
 omit = []

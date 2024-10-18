@@ -1,4 +1,4 @@
-# download lib from https://github.com/TensoRaws/py-mediainfo/releases/tag/lib
+# download lib from https://github.com/TensoRaws/pymediainfo-tensoraws/releases/tag/lib
 import hashlib
 import os
 import sys
@@ -14,11 +14,11 @@ libPATH = projectPATH / "pymediainfo"
 # lib name, url and hash
 lib_dict: Dict[str, List[str]] = {
     "libmediainfo.0.dylib": [
-        "https://github.com/TensoRaws/py-mediainfo/releases/download/lib/libmediainfo.0.dylib",
+        "https://github.com/TensoRaws/pymediainfo-tensoraws/releases/download/lib/libmediainfo.0.dylib",
         "19eca636459bd2745b45f9e1842f54b1e5560bd90b87273259fa9cd2323afb71",
     ],
     "MediaInfo.dll": [
-        "https://github.com/TensoRaws/py-mediainfo/releases/download/lib/MediaInfo.dll",
+        "https://github.com/TensoRaws/pymediainfo-tensoraws/releases/download/lib/MediaInfo.dll",
         "35bc8cc3e334c95ff9597d5ad81ada726f82e5abc3c26cb28cf18067aa0e7cbd",
     ],
 }
