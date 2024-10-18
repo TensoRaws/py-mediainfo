@@ -1,0 +1,56 @@
+name: Release-pypi
+
+on:
+  workflow_dispatch:
+
+jobs:
+  Pypi:
+    strategy:
+      matrix:
+        python-version: ["3.8"]
+        os-version: ["ubuntu-20.04", "windows-latest", "macos-13"]
+
+    runs-on: ${{ matrix.os-version }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - uses: pdm-project/setup-pdm@v3
+        name: Setup PDM
+        with:
+          python-version: ${{ matrix.python-version }}
+          architecture: x64
+          version: 2.11.1
+          prerelease: false
+          enable-pep582: false
+          allow-python-prereleases: false
+          update-python: true
+
+      - name: Install package
+        run: |
+          pdm install
+
+      - name: Build package Linux
+        if: matrix.os-version == 'ubuntu-20.04'
+        run: |
+          pdm build --no-sdist --config-setting="--plat-name=manylinux1"
+
+      - name: Build package Windows amd64
+        if: matrix.os-version == 'windows-latest'
+        run: |
+          pdm build --no-sdist --config-setting="--plat-name=win_amd64"
+
+      - name: Build package MacOS universal2
+        if: matrix.os-version == 'macos-13'
+        run: |
+          pdm build --no-sdist --config-setting="--plat-name=macosx_11_0_universal2"
+
+      - name: Publish a Python distribution to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          password: ${{ secrets.PYPI_API }}

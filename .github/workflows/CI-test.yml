@@ -1,0 +1,56 @@
+name: CI-test
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - README.md
+      - LICENSE
+  pull_request:
+    paths-ignore:
+      - README.md
+      - LICENSE
+  workflow_dispatch:
+
+env:
+  GITHUB_ACTIONS: true
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12", "3.13"]
+        os-version: ["ubuntu-20.04", "windows-latest", "macos-13"]
+
+    runs-on: ${{ matrix.os-version }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - uses: pdm-project/setup-pdm@v4
+        name: Setup PDM
+        with:
+          python-version: ${{ matrix.python-version }}
+          architecture: x64
+          version: 2.19.2
+          prerelease: false
+          enable-pep582: false
+          allow-python-prereleases: false
+          update-python: true
+
+      - name: Install mediainfo lib for Linux
+        if: matrix.os-version == 'ubuntu-20.04'
+        run: |
+          sudo apt install libmediainfo-dev -y
+          sudo apt install libgl1-mesa-glx -y
+
+      - name: Test
+        run: |
+          pdm install
+          pdm test
