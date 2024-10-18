@@ -20,12 +20,12 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
 
-      - uses: pdm-project/setup-pdm@v3
+      - uses: pdm-project/setup-pdm@v4
         name: Setup PDM
         with:
           python-version: ${{ matrix.python-version }}
           architecture: x64
-          version: 2.11.1
+          version: 2.19.2
           prerelease: false
           enable-pep582: false
           allow-python-prereleases: false
