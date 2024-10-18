@@ -56,7 +56,7 @@ jobs:
           pdm test
 
       - name: Codecov
-        if: matrix.os-version == 'ubuntu-20.04' && matrix.pytorch-version == '2.4.0'
+        if: matrix.os-version == 'ubuntu-20.04'
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}

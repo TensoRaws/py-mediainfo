@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  Pypi:
+  Build:
     strategy:
       matrix:
         python-version: ["3.8"]
@@ -49,6 +49,25 @@ jobs:
         if: matrix.os-version == 'macos-13'
         run: |
           pdm build --no-sdist --config-setting="--plat-name=macosx_11_0_universal2"
+
+      - name: upload
+        uses: actions/upload-artifact@v3
+        with:
+          path: dist
+
+  Release:
+    needs: [Build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v3
+        with:
+          path: asset
+
+      - name: dist
+        run: |
+          mkdir dist
+          cp asset/artifact/* dist
+          cd dist && ls
 
       - name: Publish a Python distribution to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
