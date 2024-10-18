@@ -10,7 +10,7 @@
 ```
 This small package is a wrapper around the MediaInfo library.
 
-It works on Linux, Mac OS (arm64/x64) and Windows (x64) and is tested with Python 3.8 to 3.13 and PyPy3.
+It works on Linux, Mac OS (arm64/x64) and Windows and is tested with Python 3.8 to 3.13 and PyPy3.
 
 See https://pymediainfo.readthedocs.io/ for more information.
 ```
